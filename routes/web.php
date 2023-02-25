@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Test\Slack;
+use App\Reffect\Myclass;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +16,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    
 
-    app()->bind('myName', function(){
-        return 'John Doe';
-    });
+    // $slack = new Slack();
+    // $myClass = new Myclass($slack);
+    // $myClass->run();
+    // dd($slack);
 
-    // dd(app());
+
+    // app()->bind('myClass', Myclass::class);
+    // $myClass = app()->make('myClass');
+    // $myClass->run();
+
+
+    // $myClass = app(Myclass::class);
+    // $myClass->run();
+
+
     $name = app()->make('myName');
-
-dd($name);
+    dd($name);
 
     return view('welcome');
 });
